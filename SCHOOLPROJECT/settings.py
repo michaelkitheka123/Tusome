@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-bx3ysv^&418l6g3xv)4zl8v9@*f0_hok#)5_)dxztx$1xym&%o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'tusome1.onrender.com',  # ✅ Add this line
+]
+
 
 
 # Application definition
@@ -182,5 +187,5 @@ DEFAULT_FROM_EMAIL = 'johngathirua@gmail.com'
 
 
 
-#OPENAI_API_KEY = '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'
+OPENAI_API_KEY = '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'
 
