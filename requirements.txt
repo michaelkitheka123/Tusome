@@ -46,7 +46,7 @@ PyScreeze==1.0.1
 python-dateutil==2.9.0.post0
 pytweening==1.2.0
 pytz==2025.2
-pywin32==306
+#pywin32==306
 scipy==1.15.2
 setuptools==78.1.0
 setuptools-scm==8.2.0
