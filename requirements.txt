@@ -34,7 +34,7 @@ patsy==1.0.1
 pillow==10.4.0
 PyAudio==0.2.14
 PyAutoGUI==0.9.54
-pygame==2.6.0
+#pygame==2.6.0
 PyGetWindow==0.0.9
 pyhdfe==0.2.0
 PyMsgBox==1.0.9
