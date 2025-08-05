@@ -1,0 +1,16 @@
+
+{%extends 'content/base.html'%}
+{%block content%}<h2>Subject Notes & Revision Materials</h2>
+<a href="{% url 'submit_note' %}">Submit New Note</a>
+<ul>
+  {% for note in notes %}
+    <li>
+      <strong>{{ note.subject }} - {{ note.topic }}</strong>
+      {% if note.description %}
+        - {{ note.description }}
+      {% endif %}
+      <a href="{{ note.file.url }}">Download</a>
+    </li>
+  {% endfor %}
+</ul>
+{%endblock%}

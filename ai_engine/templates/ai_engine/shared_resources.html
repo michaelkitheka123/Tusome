@@ -1,0 +1,17 @@
+{%extends 'content/base.html'%}
+{%block content%}
+<h2>Shared Resources</h2>
+<a href="{% url 'submit_resource' %}">Share a Resource</a>
+<ul>
+  {% for resource in resources %}
+    <li>
+      <strong>{{ resource.title }}</strong>
+      {% if resource.description %}
+        - {{ resource.description }}
+      {% endif %}
+      <a href="{{ resource.file.url }}">Download</a>
+      <em>Shared by: {{ resource.uploaded_by.username }}</em>
+    </li>
+  {% endfor %}
+</ul>
+{%endblock%}

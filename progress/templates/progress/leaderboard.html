@@ -1,0 +1,38 @@
+{% extends 'content/base.html' %}
+
+{% block title %}Leaderboard{% endblock %}
+
+{% block content %}
+<div style="max-width: 900px; margin: auto;">
+    <h2 style="text-align: center; margin-bottom: 2rem;">🏆 Leaderboard</h2>
+
+    <!-- Leaderboard Table -->
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+            <thead>
+                <tr style="background-color: #ecf0f1; text-align: left; border-bottom: 2px solid #ccc;">
+                    <th style="padding: 12px; font-weight: bold; text-align: center;">Rank</th>
+                    <th style="padding: 12px; font-weight: bold; text-align: left;">Student</th>
+                    <th style="padding: 12px; font-weight: bold; text-align: center;">Lessons Completed</th>
+                    <th style="padding: 12px; font-weight: bold; text-align: center;">Total Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in leaderboard %}
+                <tr style="border-bottom: 1px solid #ddd;">
+                    <td style="padding: 12px; text-align: center;">{{ entry.rank }}</td>
+                    <td style="padding: 12px; text-align: left; color: #2c3e50; font-weight: bold;">{{ entry.user.username }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ entry.lessons_completed }}</td>
+                    <td style="padding: 12px; text-align: center; color: #e67e22;">{{ entry.total_score }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" style="padding: 16px; text-align: center;">No leaderboard data available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}

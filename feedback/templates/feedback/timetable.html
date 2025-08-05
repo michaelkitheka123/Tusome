@@ -1,0 +1,36 @@
+{% extends 'content/base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+  <h2>Timetable</h2>
+
+  <table border="1" style="border-collapse: collapse; width: 100%;">
+    <thead>
+      <tr>
+        <th>Time Slot</th>
+        {% for day in days %}
+          <th>{{ day }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for time_slot in time_slots %}
+        <tr>
+          <td>{{ time_slot }}</td>
+          {% for day in days %}
+            <td>
+              {% with subjects=timetable|get_item:day %}
+                {% if subjects and forloop.counter0 < subjects|length %}
+                  {{ subjects|slice:":forloop.counter0"|first }}
+                {% else %}
+                  N/A
+                {% endif %}
+              {% endwith %}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

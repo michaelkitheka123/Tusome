@@ -1,0 +1,15 @@
+{%extends 'content/base.html'%}
+{%block content%}
+<h2>Your Notifications</h2>
+<ul>
+  {% for note in notifications %}
+    <li>
+      {{ note.message }}
+      {% if note.link %}<a href="{% url 'shared_resources'%}" target="_blank" rel="noopener">View</a>{% endif %}
+      <em>({{ note.created_at }})</em>
+    </li>
+  {% empty %}
+    <li>No notifications.</li>
+  {% endfor %}
+</ul>
+{%endblock%}

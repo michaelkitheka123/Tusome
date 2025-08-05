@@ -1,0 +1,33 @@
+{% extends 'content/base.html' %}
+{% block content %}
+
+<h2>Teacher Dashboard</h2>
+<a href="{% url 'student_list' %}">View All Students</a>
+
+
+<h3>Pending Resources</h3>
+<ul>
+  {% for resource in pending_resources %}
+    <li>
+      <strong>{{ resource.title }}</strong> -
+      <a href="{{ resource.file.url }}">Download</a>
+      <form action="{% url 'approve_resource' resource.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">Approve</button>
+      </form>
+    </li>
+  {% empty %}
+    <li>No pending resources</li>
+  {% endfor %}
+</ul>
+
+<h3>Your Uploaded Notes</h3>
+<ul>
+  {% for note in my_notes %}
+    <li><strong>{{ note.subject }} - {{ note.topic }}</strong></li>
+  {% empty %}
+    <li>You have not uploaded any notes yet.</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
