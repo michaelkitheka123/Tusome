@@ -1,3 +1,5 @@
+gunicorn
+
 asgiref==3.8.1
 channels==4.2.2
 charset-normalizer==3.4.2
